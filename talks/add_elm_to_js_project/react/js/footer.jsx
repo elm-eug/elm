@@ -13,15 +13,10 @@ var app = app || {};
 			var activeTodoWord = app.Utils.pluralize(this.props.count, 'item');
 			var clearButton = null;
 
-			if (this.props.completedCount > 0) {
-				clearButton = (
-					<button
-						className="clear-completed"
-						onClick={this.props.onClearCompleted}>
-						Clear completed
-					</button>
-				);
-			}
+			var elmApp = (
+				<div className="elm">
+				</div>
+			);
 
 			var nowShowing = this.props.nowShowing;
 			return (
@@ -33,28 +28,28 @@ var app = app || {};
 						<li>
 							<a
 								href="#/"
-								className={classNames({selected: nowShowing === app.ALL_TODOS})}>
-									All
+								className={classNames({ selected: nowShowing === app.ALL_TODOS })}>
+								All
 							</a>
 						</li>
 						{' '}
 						<li>
 							<a
 								href="#/active"
-								className={classNames({selected: nowShowing === app.ACTIVE_TODOS})}>
-									Active
+								className={classNames({ selected: nowShowing === app.ACTIVE_TODOS })}>
+								Active
 							</a>
 						</li>
 						{' '}
 						<li>
 							<a
 								href="#/completed"
-								className={classNames({selected: nowShowing === app.COMPLETED_TODOS})}>
-									Completed
+								className={classNames({ selected: nowShowing === app.COMPLETED_TODOS })}>
+								Completed
 							</a>
 						</li>
 					</ul>
-					{clearButton}
+					{elmApp}
 				</footer>
 			);
 		}

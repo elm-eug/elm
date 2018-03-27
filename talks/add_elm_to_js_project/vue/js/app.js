@@ -75,13 +75,21 @@
 				if (!value) {
 					return;
 				}
-				this.todos.push({ id: this.todos.length + 1, title: value, completed: false });
+				this.todos.push({
+					id: this.todos.length + 1,
+					title: value,
+					completed: false
+				});
 				this.newTodo = '';
 			},
 
 			removeTodo: function (todo) {
 				var index = this.todos.indexOf(todo);
 				this.todos.splice(index, 1);
+			},
+
+			rageQuit: function (todo) {
+				this.todos = [];
 			},
 
 			editTodo: function (todo) {

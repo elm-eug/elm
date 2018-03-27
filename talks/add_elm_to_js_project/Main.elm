@@ -1,4 +1,3 @@
-
 module Main exposing (..)
 
 import Html exposing (..)
@@ -21,7 +20,19 @@ update msg model =
 
 view : Model -> Html Msg
 view model =
-    text "boilerplate!"
+    button [ class "clear-completed", buttonStyles ] [ text "Rage quit" ]
+
+
+buttonStyles =
+    style
+        [ ( "margin-right", "8px" )
+        , ( "background", "red" )
+        , ( "color", "white" )
+        , ( "font-weight", "bold" )
+        , ( "padding", "2px" )
+        , ( "text-transform", "uppercase" )
+        , ( "border-radius", "3px" )
+        ]
 
 
 main =

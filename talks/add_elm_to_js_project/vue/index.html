@@ -8,7 +8,6 @@
 		<style> [v-cloak] { display: none; } </style>
 	</head>
 	<body>
-		<div class="elm"></div>
 		<section class="todoapp" v-cloak>
 			<header class="header">
 				<h1>todos</h1>
@@ -40,6 +39,7 @@
 				<button class="clear-completed" @click="removeCompleted" v-show="todos.length > remaining">
 					Clear completed
 				</button>
+				<div class="elm"></div>
 			</footer>
 		</section>
 		<footer class="info">

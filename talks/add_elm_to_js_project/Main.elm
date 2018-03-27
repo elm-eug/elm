@@ -1,8 +1,11 @@
-module Main exposing (..)
+port module Main exposing (..)
 
 import Html exposing (..)
 import Html.Attributes exposing (..)
 import Html.Events exposing (..)
+
+
+port rageQuit : () -> Cmd msg
 
 
 type alias Model =
@@ -10,17 +13,19 @@ type alias Model =
 
 
 type Msg
-    = NoOp
+    = RageQuit
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
-    ( 1, Cmd.none )
+    case msg of
+        RageQuit ->
+            ( 1, rageQuit () )
 
 
 view : Model -> Html Msg
 view model =
-    button [ class "clear-completed", buttonStyles ] [ text "Rage quit" ]
+    button [ class "clear-completed", buttonStyles, onClick RageQuit ] [ text "Rage quit" ]
 
 
 buttonStyles =

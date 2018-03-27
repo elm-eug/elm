@@ -54,6 +54,11 @@
 		<script src="js/elm.js"></script>
 		<script>
 			var elmapp = Elm.Main.embed(document.querySelector('.elm'));
+			
+			elmapp.ports.rageQuit.subscribe(function(doink) {
+					app.rageQuit();
+			})
+
 		</script>
 	</body>
 </html>

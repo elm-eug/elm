@@ -1,9 +1,11 @@
 {
   "private": true,
   "scripts": {
-    "dev": "tsc --watch"
+    "start": "npx tsc --watch"
   },
   "devDependencies": {
+    "ng-elm": "^1.0.5",
+    "tsc": "^1.20150623.0",
     "typescript": "1.7.5"
   },
   "dependencies": {

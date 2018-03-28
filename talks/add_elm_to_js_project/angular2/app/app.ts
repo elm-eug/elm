@@ -1,5 +1,6 @@
 import {Component} from 'angular2/core';
 import {TodoStore, Todo} from './services/store';
+import { NgElmModule } from 'ng-elm';
 
 @Component({
 	selector: 'todo-app',

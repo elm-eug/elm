@@ -4,6 +4,8 @@
 /*jshint newcap:false */
 /*global React */
 var app = app || {};
+import Elm from 'react-elm-components'
+
 
 (function () {
 	'use strict';

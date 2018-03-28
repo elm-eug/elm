@@ -4,9 +4,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import 'todomvc-common/base.css';
 import 'todomvc-app-css/index.css';
-import './index.css';
 import App from './App';
-import registerServiceWorker from './registerServiceWorker';
 import TodoModel from './TodoModel';
 
 const model = new TodoModel('react-todos');
@@ -17,5 +15,3 @@ function render() {
 
 render();
 model.subscribe(render);
-
-registerServiceWorker();

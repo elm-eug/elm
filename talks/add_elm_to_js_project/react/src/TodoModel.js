@@ -1,4 +1,4 @@
-import * as Utils from './utils';
+import * as Utils from './Utils';
 
 export default class TodoModel {
   constructor(key) {

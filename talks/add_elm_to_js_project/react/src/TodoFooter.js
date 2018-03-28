@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import * as Utils from './utils';
+import * as Utils from './Utils';
 import { ALL_TODOS, ACTIVE_TODOS, COMPLETED_TODOS } from './constants';
 import classNames from 'classnames';
 

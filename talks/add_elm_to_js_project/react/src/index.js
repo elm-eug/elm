@@ -1,8 +1,21 @@
+import 'todomvc-common/base.js';
+
 import React from 'react';
 import ReactDOM from 'react-dom';
+import 'todomvc-common/base.css';
+import 'todomvc-app-css/index.css';
 import './index.css';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
+import TodoModel from './TodoModel';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+const model = new TodoModel('react-todos');
+
+function render() {
+  ReactDOM.render(<App model={model}/>, document.querySelector('.todoapp'));
+}
+
+render();
+model.subscribe(render);
+
 registerServiceWorker();

@@ -2,18 +2,25 @@ import React, { Component } from 'react';
 import * as Utils from './Utils';
 import { ALL_TODOS, ACTIVE_TODOS, COMPLETED_TODOS } from './constants';
 import classNames from 'classnames';
+import Elm from 'react-elm-components';
+import { Main as MyElmApp } from './MyElmApp.elm';
+
+function setupPorts(ports) {
+  subscribe = ports.outgoing.subscribe;
+  send = ports.incoming.send;
+};
+
+let send = function () {};
+let subscribe = function (data) {
+  console.log("Got:", data);
+};
 
 export default class TodoFooter extends Component {
   render() {
     var activeTodoWord = Utils.pluralize(this.props.count, 'item');
-    var clearButton = null;
-
-    var elmApp = (
-      <div className="elm">
-      </div>
-    );
 
     var nowShowing = this.props.nowShowing;
+    const flags = 42;
     return (
       <footer className="footer">
         <span className="todo-count">
@@ -44,7 +51,7 @@ export default class TodoFooter extends Component {
             </a>
           </li>
         </ul>
-        {elmApp}
+        <Elm src={MyElmApp} flags={flags} ports={setupPorts} />
       </footer>
     );
   }

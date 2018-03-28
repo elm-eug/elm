@@ -3,8 +3,6 @@ import { ALL_TODOS, ACTIVE_TODOS, COMPLETED_TODOS } from './constants';
 import TodoFooter from './TodoFooter';
 import TodoItem from './TodoItem';
 import hasher from 'hasher';
-import Elm from 'react-elm-components';
-import { Main as MyElmApp } from './MyElmApp.elm';
 
 const ENTER_KEY = 13;
 
@@ -147,7 +145,6 @@ export default class App extends Component {
 
     return (
       <div>
-        <Elm src={MyElmApp}/>
         <header className="header">
           <h1>todos</h1>
           <input

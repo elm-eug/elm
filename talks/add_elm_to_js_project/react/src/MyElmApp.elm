@@ -1,52 +1,55 @@
-module Main exposing (..)
+port module Main exposing (..)
 
-import Html exposing (Html, text, div, h1, img)
-import Html.Attributes exposing (src)
+import Html exposing (..)
+import Html.Attributes exposing (..)
+import Html.Events exposing (..)
+import Json.Decode
+import Json.Encode
 
+port outgoing : Json.Encode.Value -> Cmd msg
 
----- MODEL ----
+port incoming : (Json.Encode.Value -> msg) -> Sub msg
 
 
 type alias Model =
-    {}
-
-
-init : ( Model, Cmd Msg )
-init =
-    ( {}, Cmd.none )
-
-
-
----- UPDATE ----
+    Int
 
 
 type Msg
-    = NoOp
+    = RageQuit
+    | Incoming Json.Encode.Value
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
-    ( model, Cmd.none )
-
-
-
----- VIEW ----
+    case msg of
+        RageQuit ->
+            ( 1, outgoing <| Json.Encode.int 1 )
+        Incoming data ->
+            ( 1, Cmd.none )
 
 
 view : Model -> Html Msg
 view model =
-    div [] [ text "Your Elm App is working!" ]
+    button [ class "clear-completed", buttonStyles, onClick RageQuit ] [ text "Rage quit" ]
 
 
+buttonStyles =
+    style
+        [ ( "margin-right", "8px" )
+        , ( "background", "red" )
+        , ( "color", "white" )
+        , ( "font-weight", "bold" )
+        , ( "padding", "2px" )
+        , ( "text-transform", "uppercase" )
+        , ( "border-radius", "3px" )
+        ]
 
----- PROGRAM ----
 
-
-main : Program Never Model Msg
 main =
-    Html.program
-        { view = view
-        , init = init
-        , update = update
+    programWithFlags
+        { update = update
+        , view = view
+        , init = (\n -> ( n, Cmd.none ))
         , subscriptions = always Sub.none
         }
